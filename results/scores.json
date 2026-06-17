@@ -1,0 +1,236 @@
+{
+  "run_meta": {
+    "started_utc": "2026-06-17T07:42:11.396511+00:00",
+    "finished_utc": "2026-06-17T07:45:20.153525+00:00",
+    "models": {
+      "llama-3.3-70b": "llama-3.3-70b-versatile",
+      "gpt-oss-120b": "openai/gpt-oss-120b"
+    },
+    "judge_model": "llama-3.3-70b-versatile",
+    "gen_temperature": 0.3,
+    "judge_temperature": 0.0,
+    "n_scenarios": 10
+  },
+  "metric_definitions": {
+    "fact_recall": {
+      "focus": "Fact Recall / Specificity",
+      "technique": "Structured LLM check (per-fact yes/no) scored deterministically in Python",
+      "logic": "score = (facts marked present / total required facts) * 100",
+      "why": "Dropping a required fact is a functional failure regardless of writing quality."
+    },
+    "tone_accuracy": {
+      "focus": "Tone Accuracy",
+      "technique": "LLM-as-judge, 1-5 rubric",
+      "logic": "rubric score (1-5) * 20 -> 0-100",
+      "why": "Tone is subjective and holistic; a keyword heuristic cannot judge it."
+    },
+    "conciseness_fluency": {
+      "focus": "Conciseness & Grammar/Fluency",
+      "technique": "Hybrid: pure-Python length analysis vs the human reference + LLM fluency rubric",
+      "logic": "0.5 * length_band_score(len/ref_len, Python) + 0.5 * (fluency 1-5 * 20, LLM)",
+      "why": "A correct, on-tone email still fails if it is bloated or clumsy."
+    }
+  },
+  "rows": [
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S01_sales_followup",
+      "intent": "Follow up after a sales meeting and propose next steps",
+      "tone": "professional and friendly",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 83.48,
+      "overall": 94.49
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S02_rfp_request",
+      "intent": "Request proposal details from a vendor for a project",
+      "tone": "formal",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 75.64,
+      "overall": 91.88
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S03_outage_apology",
+      "intent": "Apologize to customers for a service outage and offer a goodwill gesture",
+      "tone": "empathetic and apologetic",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 73.63,
+      "overall": 91.21
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S04_reconnect_colleague",
+      "intent": "Reconnect casually with a former colleague",
+      "tone": "casual and warm",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S05_deadline_escalation",
+      "intent": "Escalate a missed deadline and request an immediate update",
+      "tone": "urgent but professional",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S06_partner_pitch",
+      "intent": "Pitch a potential partner on an integration opportunity",
+      "tone": "persuasive and confident",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 81.29,
+      "overall": 93.76
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S07_invoice_reminder",
+      "intent": "Send a polite reminder about an overdue invoice",
+      "tone": "polite and concise",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S08_interview_thankyou",
+      "intent": "Send a thank-you note after a job interview",
+      "tone": "appreciative and professional",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 88.71,
+      "overall": 96.24
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S09_policy_announcement",
+      "intent": "Announce a new internal policy to staff",
+      "tone": "clear and neutral",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "llama-3.3-70b",
+      "scenario_id": "S10_decline_meeting",
+      "intent": "Decline a meeting request gracefully and offer an alternative",
+      "tone": "courteous and diplomatic",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 86.03,
+      "overall": 95.34
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S01_sales_followup",
+      "intent": "Follow up after a sales meeting and propose next steps",
+      "tone": "professional and friendly",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S02_rfp_request",
+      "intent": "Request proposal details from a vendor for a project",
+      "tone": "formal",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S03_outage_apology",
+      "intent": "Apologize to customers for a service outage and offer a goodwill gesture",
+      "tone": "empathetic and apologetic",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S04_reconnect_colleague",
+      "intent": "Reconnect casually with a former colleague",
+      "tone": "casual and warm",
+      "fact_recall": 75.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 91.67
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S05_deadline_escalation",
+      "intent": "Escalate a missed deadline and request an immediate update",
+      "tone": "urgent but professional",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S06_partner_pitch",
+      "intent": "Pitch a potential partner on an integration opportunity",
+      "tone": "persuasive and confident",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 83.76,
+      "overall": 94.59
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S07_invoice_reminder",
+      "intent": "Send a polite reminder about an overdue invoice",
+      "tone": "polite and concise",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S08_interview_thankyou",
+      "intent": "Send a thank-you note after a job interview",
+      "tone": "appreciative and professional",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 95.45,
+      "overall": 98.48
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S09_policy_announcement",
+      "intent": "Announce a new internal policy to staff",
+      "tone": "clear and neutral",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 92.72,
+      "overall": 97.57
+    },
+    {
+      "model": "gpt-oss-120b",
+      "scenario_id": "S10_decline_meeting",
+      "intent": "Decline a meeting request gracefully and offer an alternative",
+      "tone": "courteous and diplomatic",
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    }
+  ]
+}

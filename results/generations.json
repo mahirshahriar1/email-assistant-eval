@@ -1,0 +1,1172 @@
+[
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S01_sales_followup",
+    "intent": "Follow up after a sales meeting and propose next steps",
+    "tone": "professional and friendly",
+    "key_facts": [
+      "We met on Tuesday, June 9",
+      "Discussed the Enterprise plan at $2,400 per year",
+      "I will send the customer case study I mentioned",
+      "Propose a follow-up call next Thursday at 2:00pm"
+    ],
+    "reference_email": "Subject: Great speaking on Tuesday - next steps\n\nHi Priya,\n\nThank you for taking the time to meet on Tuesday, June 9. I really enjoyed our conversation about how the Enterprise plan ($2,400/year) could support your team's goals.\n\nAs promised, I'll send over the customer case study I mentioned so you can see the results in a similar setup. To keep things moving, would you be open to a follow-up call next Thursday at 2:00pm to walk through any questions?\n\nLooking forward to it.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Next steps after our meeting on June 9\n\nHi again,\n\nI wanted to follow up on our meeting this past Tuesday, June 9, and thank you for considering our Enterprise plan. As we discussed, this option is priced at $2,400 per year and I believe it would be a great fit for your needs. I also wanted to follow through on my promise to send over a customer case study that I mentioned during our conversation - you can expect to receive that from me shortly.\n\nTo further discuss how our Enterprise plan can support your goals, I'd love to schedule a follow-up call for next Thursday at 2:00pm. Would that time work for you? If not, please let me know a time that suits you better.\n\nLooking forward to speaking with you again soon.\n\nBest,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 83.48,
+      "overall": 94.49
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "We met on Tuesday, June 9",
+            "present": true
+          },
+          {
+            "fact": "Discussed the Enterprise plan at $2,400 per year",
+            "present": true
+          },
+          {
+            "fact": "I will send the customer case study I mentioned",
+            "present": true
+          },
+          {
+            "fact": "Propose a follow-up call next Thursday at 2:00pm",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "professional and friendly",
+        "rationale": "The tone is professional and friendly, perfectly matching the requested tone."
+      },
+      "conciseness_fluency": {
+        "reference_words": 92,
+        "generated_words": 142,
+        "length_ratio": 1.543,
+        "length_score": 67.0,
+        "avg_sentence_length": 12.9,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email has flawless grammar, natural phrasing, and is well-written."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S02_rfp_request",
+    "intent": "Request proposal details from a vendor for a project",
+    "tone": "formal",
+    "key_facts": [
+      "Project: Atlas CRM migration",
+      "Budget is capped at 50,000 pounds",
+      "We need the proposal by June 30",
+      "Point of contact is Sarah Lin"
+    ],
+    "reference_email": "Subject: Request for Proposal - Atlas CRM Migration\n\nDear Vendor Team,\n\nWe are inviting proposals for the Atlas CRM migration project and would welcome your submission.\n\nThe budget for this engagement is capped at 50,000 pounds. Please ensure your proposal addresses scope, timeline, and a detailed cost breakdown within that figure, and submit it to us by June 30.\n\nAll questions and the final proposal should be directed to our point of contact, Sarah Lin. We look forward to reviewing your response.\n\nYours sincerely,\n[Your Name]",
+    "generated_email": "Subject: Request for Proposal: Atlas CRM Migration Project\n\nDear Vendor Team,\n\nWe are reaching out to request a detailed proposal for the Atlas CRM migration project. As we move forward with this initiative, it is essential that we receive a comprehensive outline of your approach, timeline, and costs. Please note that our budget for this project is capped at 50,000 pounds, and we will be evaluating proposals with this constraint in mind.\n\nWe would appreciate it if you could submit your proposal by June 30, to ensure that we can review and proceed with the project in a timely manner. If you have any questions or require further clarification, please do not hesitate to reach out to Sarah Lin, our point of contact for this project.\n\nWe look forward to receiving your proposal and exploring how we can work together to successfully migrate our Atlas CRM system.\n\nBest regards,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 75.64,
+      "overall": 91.88
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "Project: Atlas CRM migration",
+            "present": true
+          },
+          {
+            "fact": "Budget is capped at 50,000 pounds",
+            "present": true
+          },
+          {
+            "fact": "We need the proposal by June 30",
+            "present": true
+          },
+          {
+            "fact": "Point of contact is Sarah Lin",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "formal",
+        "rationale": "The tone is formal and professional throughout the email."
+      },
+      "conciseness_fluency": {
+        "reference_words": 86,
+        "generated_words": 152,
+        "length_ratio": 1.767,
+        "length_score": 51.3,
+        "avg_sentence_length": 15.2,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S03_outage_apology",
+    "intent": "Apologize to customers for a service outage and offer a goodwill gesture",
+    "tone": "empathetic and apologetic",
+    "key_facts": [
+      "The outage lasted three hours on June 12",
+      "It affected the checkout page",
+      "The root cause has been fixed",
+      "Offer a 15% discount with code SORRY15"
+    ],
+    "reference_email": "Subject: We're sorry about Friday's disruption\n\nHi there,\n\nI want to personally apologize for the service disruption on June 12, when our checkout page was unavailable for roughly three hours. I know how frustrating that timing can be, and we're sorry for the inconvenience it caused.\n\nThe root cause has been identified and fixed, and we've put safeguards in place to prevent a repeat. As a small thank-you for your patience, please enjoy 15% off your next order with the code SORRY15.\n\nThank you for sticking with us.\n\nWarm regards,\n[Your Name]",
+    "generated_email": "Subject: A sincere apology for the recent service outage\n\nDear valued customer,\n\nI'm writing to apologize for the service outage that occurred on June 12, which lasted for three hours and affected our checkout page. We know how frustrating it can be when you're trying to complete a purchase and the system isn't cooperating. Please accept our sincerest apologies for the inconvenience this caused.\n\nOur team worked diligently to identify and fix the root cause of the issue, and I'm happy to report that it's now been resolved. We're taking steps to prevent such outages in the future and appreciate your patience and understanding.\n\nAs a gesture of goodwill, we'd like to offer you a 15% discount on your next purchase with us. Simply use the code SORRY15 at checkout to receive your discount. We value your business and hope you'll give us the opportunity to serve you better in the future.\n\nThank you for your understanding, and we look forward to serving you soon.\n\nBest regards,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 73.63,
+      "overall": 91.21
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "The outage lasted three hours on June 12",
+            "present": true
+          },
+          {
+            "fact": "It affected the checkout page",
+            "present": true
+          },
+          {
+            "fact": "The root cause has been fixed",
+            "present": true
+          },
+          {
+            "fact": "Offer a 15% discount with code SORRY15",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "empathetic and apologetic",
+        "rationale": "The email consistently conveys an empathetic and apologetic tone."
+      },
+      "conciseness_fluency": {
+        "reference_words": 97,
+        "generated_words": 177,
+        "length_ratio": 1.825,
+        "length_score": 47.3,
+        "avg_sentence_length": 13.6,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S04_reconnect_colleague",
+    "intent": "Reconnect casually with a former colleague",
+    "tone": "casual and warm",
+    "key_facts": [
+      "We haven't spoken since 2023",
+      "I saw they recently joined Stripe",
+      "Suggest grabbing coffee to catch up",
+      "I'm usually free on Friday mornings"
+    ],
+    "reference_email": "Subject: Long overdue catch-up!\n\nHey Marcus,\n\nIt's been way too long - I think the last time we properly caught up was back in 2023! I saw the news that you recently joined Stripe, and I'd love to hear how it's going.\n\nAny chance you'd be up for grabbing a coffee soon? I'm usually free on Friday mornings, so just say the word and I'll find a spot.\n\nWould be great to reconnect.\n\nCheers,\n[Your Name]",
+    "generated_email": "Subject: Long time no talk\n\nHi Alex,\n\nIt's hard to believe it's been since 2023 that we last caught up. I saw the news that you've joined Stripe - huge congrats on the new role. I'd love to hear about what you're working on and how the transition has been.\n\nIf you're game, let's grab coffee and catch up in person. I'm usually free on Friday mornings, so maybe we could plan something then?\n\nLooking forward to hearing from you and catching up soon.\n\nBest,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "We haven't spoken since 2023",
+            "present": true
+          },
+          {
+            "fact": "I saw they recently joined Stripe",
+            "present": true
+          },
+          {
+            "fact": "Suggest grabbing coffee to catch up",
+            "present": true
+          },
+          {
+            "fact": "I'm usually free on Friday mornings",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "casual and warm",
+        "rationale": "The email uses friendly language and invites the recipient to catch up, conveying a casual and warm tone."
+      },
+      "conciseness_fluency": {
+        "reference_words": 82,
+        "generated_words": 94,
+        "length_ratio": 1.146,
+        "length_score": 100.0,
+        "avg_sentence_length": 9.4,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written, clear, and naturally phrased, with flawless grammar."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S05_deadline_escalation",
+    "intent": "Escalate a missed deadline and request an immediate update",
+    "tone": "urgent but professional",
+    "key_facts": [
+      "The deliverable was due yesterday, June 15",
+      "The client launch is on June 20",
+      "I need a status update by end of day today",
+      "Call me directly if you are blocked"
+    ],
+    "reference_email": "Subject: Action needed today - June 15 deliverable is overdue\n\nHi Tom,\n\nI'm flagging this with some urgency: the deliverable due yesterday, June 15, hasn't come through yet, and with the client launch on June 20 we have very little buffer left.\n\nCould you please send me a clear status update by end of day today? If anything is blocking you, call me directly and we'll sort it out together right away.\n\nThanks for jumping on this.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Urgent: Missed Deadline for Client Launch on June 20\n\nHi team,\n\nI'm writing to escalate the missed deadline for the deliverable that was due yesterday, June 15. With the client launch just five days away on June 20, it's crucial we get back on track immediately. I need a status update by the end of day today to assess our next steps. If you're blocked or facing any obstacles, please call me directly so we can work through them together.\n\nLooking forward to hearing from you soon.\n\nBest,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "The deliverable was due yesterday, June 15",
+            "present": true
+          },
+          {
+            "fact": "The client launch is on June 20",
+            "present": true
+          },
+          {
+            "fact": "I need a status update by end of day today",
+            "present": true
+          },
+          {
+            "fact": "Call me directly if you are blocked",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "urgent but professional",
+        "rationale": "The email conveys a sense of urgency while maintaining professionalism."
+      },
+      "conciseness_fluency": {
+        "reference_words": 82,
+        "generated_words": 94,
+        "length_ratio": 1.146,
+        "length_score": 100.0,
+        "avg_sentence_length": 10.4,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S06_partner_pitch",
+    "intent": "Pitch a potential partner on an integration opportunity",
+    "tone": "persuasive and confident",
+    "key_facts": [
+      "Our platform is 40% faster than the leading alternative",
+      "We have over 10,000 active users",
+      "We offer a free 30-day pilot",
+      "Integration typically takes about two weeks"
+    ],
+    "reference_email": "Subject: A partnership your users will thank you for\n\nHi Dana,\n\nI'll keep this brief because I think the fit is obvious. Our platform runs 40% faster than the leading alternative and already serves more than 10,000 active users - and I believe your customers would feel the difference immediately.\n\nTo make saying yes easy, we offer a free 30-day pilot, and integration typically takes about two weeks with our team doing the heavy lifting.\n\nCould we grab 20 minutes this week to explore it? I'm confident it'll be worth your time.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Unlock New Value with a Seamless Integration\n\nHi Alex,\n\nI'm excited to introduce an opportunity for our companies to work together, leveraging our platform's superior performance to drive growth for your business. With our solution being 40% faster than the leading alternative, we've attracted over 10,000 active users who rely on us for efficient operations. By integrating our platforms, we can offer your customers a more streamlined experience, setting us both up for success.\n\nTo make this integration as smooth as possible, we've refined our process to typically take about two weeks. We're also happy to offer a free 30-day pilot, allowing you to test our solution risk-free and see the benefits firsthand.\n\nI'd love to schedule a call to discuss how our integration can enhance your offerings and explore the potential for a mutually beneficial partnership. Would you be available for a call next week?\n\nBest,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 81.29,
+      "overall": 93.76
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "Our platform is 40% faster than the leading alternative",
+            "present": true
+          },
+          {
+            "fact": "We have over 10,000 active users",
+            "present": true
+          },
+          {
+            "fact": "We offer a free 30-day pilot",
+            "present": true
+          },
+          {
+            "fact": "Integration typically takes about two weeks",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "persuasive and confident",
+        "rationale": "The email confidently presents the benefits of the platform and its integration."
+      },
+      "conciseness_fluency": {
+        "reference_words": 99,
+        "generated_words": 159,
+        "length_ratio": 1.606,
+        "length_score": 62.6,
+        "avg_sentence_length": 14.5,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S07_invoice_reminder",
+    "intent": "Send a polite reminder about an overdue invoice",
+    "tone": "polite and concise",
+    "key_facts": [
+      "Invoice number 4821 for $1,250",
+      "It was due on June 1",
+      "It is now 14 days overdue",
+      "A secure payment link is included"
+    ],
+    "reference_email": "Subject: Friendly reminder - Invoice #4821\n\nHi Alex,\n\nJust a gentle reminder that invoice #4821 for $1,250 was due on June 1 and is now 14 days overdue.\n\nIf it's already on its way, thank you and please ignore this note. Otherwise, you can settle it quickly using the secure payment link below.\n\nHappy to help if you have any questions.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Overdue Invoice 4821 for $1,250\n\nHi there,\n\nI'm reaching out about invoice 4821 for $1,250, which was due on June 1. As it's now 14 days overdue, I wanted to send a polite reminder to bring it to your attention. To make payment easy and secure, you can use this link: [secure payment link].\n\nPlease let me know if you have any questions or concerns. I appreciate your prompt attention to this matter.\n\nBest,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "Invoice number 4821 for $1,250",
+            "present": true
+          },
+          {
+            "fact": "It was due on June 1",
+            "present": true
+          },
+          {
+            "fact": "It is now 14 days overdue",
+            "present": true
+          },
+          {
+            "fact": "A secure payment link is included",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "polite and concise",
+        "rationale": "The tone is consistently polite and concise throughout the email."
+      },
+      "conciseness_fluency": {
+        "reference_words": 65,
+        "generated_words": 81,
+        "length_ratio": 1.246,
+        "length_score": 100.0,
+        "avg_sentence_length": 9.0,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S08_interview_thankyou",
+    "intent": "Send a thank-you note after a job interview",
+    "tone": "appreciative and professional",
+    "key_facts": [
+      "Interviewed for the Senior Data Engineer role on June 10",
+      "Enjoyed discussing the recommendation pipeline",
+      "Want to reiterate strong interest in the role",
+      "Available to start in July"
+    ],
+    "reference_email": "Subject: Thank you - Senior Data Engineer interview\n\nDear Hiring Team,\n\nThank you for the opportunity to interview for the Senior Data Engineer role on June 10. I especially enjoyed our discussion about the recommendation pipeline - it's exactly the kind of problem I find energizing.\n\nThe conversation only strengthened my interest in the role, and I'd be glad to bring my experience to the team. Should things move forward, I'm available to start in July.\n\nThank you again for your time and consideration.\n\nBest regards,\n[Your Name]",
+    "generated_email": "Subject: Thank you for the opportunity to interview for Senior Data Engineer\n\nDear Hiring Manager,\n\nI wanted to express my sincere gratitude for taking the time to speak with me on June 10 about the Senior Data Engineer role. I truly enjoyed our conversation, particularly the discussion around the recommendation pipeline and how I can contribute to its development. Our talk only strengthened my interest in the position, and I wanted to reiterate how excited I am about the opportunity to join your team. As we discussed my qualifications, I also wanted to confirm that I am available to start in July, should I be selected for the role.\n\nThank you again for your time, and I look forward to hearing from you soon.\n\nBest regards,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 88.71,
+      "overall": 96.24
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "Interviewed for the Senior Data Engineer role on June 10",
+            "present": true
+          },
+          {
+            "fact": "Enjoyed discussing the recommendation pipeline",
+            "present": true
+          },
+          {
+            "fact": "Want to reiterate strong interest in the role",
+            "present": true
+          },
+          {
+            "fact": "Available to start in July",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "appreciative and professional",
+        "rationale": "The email conveys a sincere and appreciative tone throughout."
+      },
+      "conciseness_fluency": {
+        "reference_words": 89,
+        "generated_words": 128,
+        "length_ratio": 1.438,
+        "length_score": 77.4,
+        "avg_sentence_length": 14.2,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S09_policy_announcement",
+    "intent": "Announce a new internal policy to staff",
+    "tone": "clear and neutral",
+    "key_facts": [
+      "A new hybrid work policy takes effect on July 1",
+      "Staff are expected in the office three days a week, Tuesday to Thursday",
+      "Questions should go to HR by June 25"
+    ],
+    "reference_email": "Subject: New hybrid work policy - effective July 1\n\nHi everyone,\n\nI'm writing to share an update to how we work together. Starting July 1, we're moving to a new hybrid work policy.\n\nUnder the new arrangement, staff are expected in the office three days a week, Tuesday through Thursday, with the remaining days flexible. This gives us reliable time together for collaboration while keeping the flexibility many of you value.\n\nIf you have any questions or concerns, please reach out to HR by June 25 so we can address them before the change takes effect.\n\nThank you,\n[Your Name]",
+    "generated_email": "Subject: Introduction of Hybrid Work Policy\n\nDear Staff,\n\nAs we continue to evolve and adapt to changing work environments, we are introducing a new hybrid work policy that will take effect on July 1. This policy aims to strike a balance between in-office collaboration and remote work flexibility. Under this new policy, staff are expected to be in the office three days a week, specifically Tuesday to Thursday.\n\nIf you have any questions or concerns regarding this new policy, please reach out to the HR department by June 25, so we can address them before the policy goes into effect.\n\nBest,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 3,
+        "facts_present": 3,
+        "assessments": [
+          {
+            "fact": "A new hybrid work policy takes effect on July 1",
+            "present": true
+          },
+          {
+            "fact": "Staff are expected in the office three days a week, Tuesday to Thursday",
+            "present": true
+          },
+          {
+            "fact": "Questions should go to HR by June 25",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "clear and neutral",
+        "rationale": "The tone is clear and neutral, effectively conveying the policy information without emotional bias."
+      },
+      "conciseness_fluency": {
+        "reference_words": 101,
+        "generated_words": 104,
+        "length_ratio": 1.03,
+        "length_score": 100.0,
+        "avg_sentence_length": 13.0,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written, with flawless grammar and natural phrasing that effectively communicates the policy details."
+      }
+    }
+  },
+  {
+    "model": "llama-3.3-70b",
+    "model_id": "llama-3.3-70b-versatile",
+    "scenario_id": "S10_decline_meeting",
+    "intent": "Decline a meeting request gracefully and offer an alternative",
+    "tone": "courteous and diplomatic",
+    "key_facts": [
+      "I can't attend the workshop on June 18",
+      "I have a prior commitment that day",
+      "Suggest sharing async notes instead",
+      "Happy to review the recording afterward"
+    ],
+    "reference_email": "Subject: Re: Workshop on June 18\n\nHi Lena,\n\nThank you for the invitation to the workshop on June 18. Unfortunately, I have a prior commitment that day and won't be able to join in person.\n\nI don't want to hold things up, so perhaps we could share async notes so I can still contribute my input. I'd also be very happy to review the recording afterward and follow up with any thoughts.\n\nApologies for the clash, and thank you for understanding.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Regrettable Decline: Workshop on June 18\n\nDear [Recipient],\n\nI appreciate your invitation to the workshop on June 18, and I'm grateful for the opportunity to be included. Unfortunately, I have a prior commitment that day and won't be able to attend. I'm truly sorry to miss it, as I'm sure it will be a valuable discussion.\n\nIf it would be helpful, I'd be happy to review the recording of the workshop afterward. Alternatively, would it be possible to share asynchronous notes or a summary of the key takeaways? I'd love to stay informed and provide any feedback or insights I can in a written format.\n\nThank you for your understanding, and I look forward to catching up soon.\n\nBest regards,\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 86.03,
+      "overall": 95.34
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "I can't attend the workshop on June 18",
+            "present": true
+          },
+          {
+            "fact": "I have a prior commitment that day",
+            "present": true
+          },
+          {
+            "fact": "Suggest sharing async notes instead",
+            "present": true
+          },
+          {
+            "fact": "Happy to review the recording afterward",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "courteous and diplomatic",
+        "rationale": "The email maintains a polite and considerate tone throughout."
+      },
+      "conciseness_fluency": {
+        "reference_words": 87,
+        "generated_words": 129,
+        "length_ratio": 1.483,
+        "length_score": 72.1,
+        "avg_sentence_length": 11.7,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-structured and written in clear, natural language."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S01_sales_followup",
+    "intent": "Follow up after a sales meeting and propose next steps",
+    "tone": "professional and friendly",
+    "key_facts": [
+      "We met on Tuesday, June 9",
+      "Discussed the Enterprise plan at $2,400 per year",
+      "I will send the customer case study I mentioned",
+      "Propose a follow-up call next Thursday at 2:00pm"
+    ],
+    "reference_email": "Subject: Great speaking on Tuesday - next steps\n\nHi Priya,\n\nThank you for taking the time to meet on Tuesday, June 9. I really enjoyed our conversation about how the Enterprise plan ($2,400/year) could support your team's goals.\n\nAs promised, I'll send over the customer case study I mentioned so you can see the results in a similar setup. To keep things moving, would you be open to a follow-up call next Thursday at 2:00pm to walk through any questions?\n\nLooking forward to it.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Next Steps After Our June 9 Meeting  \n\nHi [Recipient’s Name],\n\nIt was great speaking with you on Tuesday, June 9, and I appreciate the time you spent reviewing the Enterprise plan at $2,400 per year. As promised, I’ll send over the customer case study we discussed so you can see how the solution delivers value in a real‑world setting.\n\nTo keep the momentum, could we schedule a follow‑up call next Thursday at 2:00 pm? Please let me know if that works for you or suggest an alternative time that fits your calendar.\n\nLooking forward to our next conversation.\n\nBest regards,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "We met on Tuesday, June 9",
+            "present": true
+          },
+          {
+            "fact": "Discussed the Enterprise plan at $2,400 per year",
+            "present": true
+          },
+          {
+            "fact": "I will send the customer case study I mentioned",
+            "present": true
+          },
+          {
+            "fact": "Propose a follow-up call next Thursday at 2:00pm",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "professional and friendly",
+        "rationale": "The tone is professional and friendly throughout the email."
+      },
+      "conciseness_fluency": {
+        "reference_words": 92,
+        "generated_words": 109,
+        "length_ratio": 1.185,
+        "length_score": 100.0,
+        "avg_sentence_length": 12.1,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email has flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S02_rfp_request",
+    "intent": "Request proposal details from a vendor for a project",
+    "tone": "formal",
+    "key_facts": [
+      "Project: Atlas CRM migration",
+      "Budget is capped at 50,000 pounds",
+      "We need the proposal by June 30",
+      "Point of contact is Sarah Lin"
+    ],
+    "reference_email": "Subject: Request for Proposal - Atlas CRM Migration\n\nDear Vendor Team,\n\nWe are inviting proposals for the Atlas CRM migration project and would welcome your submission.\n\nThe budget for this engagement is capped at 50,000 pounds. Please ensure your proposal addresses scope, timeline, and a detailed cost breakdown within that figure, and submit it to us by June 30.\n\nAll questions and the final proposal should be directed to our point of contact, Sarah Lin. We look forward to reviewing your response.\n\nYours sincerely,\n[Your Name]",
+    "generated_email": "Subject: Request for Proposal – Atlas CRM Migration (Budget £50,000, Due June 30)\n\nDear [Vendor Name],\n\nI am writing on behalf of our organization to request a detailed proposal for the Atlas CRM migration project. Please note that the budget for this initiative is capped at £50,000, and we require the completed proposal by 30 June to proceed with our evaluation timeline.\n\nKindly direct all proposal materials and any questions to our point of contact, Sarah Lin, at sarah.lin@[company].com.\n\nWe appreciate your prompt attention to this request and look forward to reviewing your submission.\n\nSincerely,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "Project: Atlas CRM migration",
+            "present": true
+          },
+          {
+            "fact": "Budget is capped at 50,000 pounds",
+            "present": true
+          },
+          {
+            "fact": "We need the proposal by June 30",
+            "present": true
+          },
+          {
+            "fact": "Point of contact is Sarah Lin",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "formal",
+        "rationale": "The tone is formal and professional throughout the email."
+      },
+      "conciseness_fluency": {
+        "reference_words": 86,
+        "generated_words": 101,
+        "length_ratio": 1.174,
+        "length_score": 100.0,
+        "avg_sentence_length": 10.1,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S03_outage_apology",
+    "intent": "Apologize to customers for a service outage and offer a goodwill gesture",
+    "tone": "empathetic and apologetic",
+    "key_facts": [
+      "The outage lasted three hours on June 12",
+      "It affected the checkout page",
+      "The root cause has been fixed",
+      "Offer a 15% discount with code SORRY15"
+    ],
+    "reference_email": "Subject: We're sorry about Friday's disruption\n\nHi there,\n\nI want to personally apologize for the service disruption on June 12, when our checkout page was unavailable for roughly three hours. I know how frustrating that timing can be, and we're sorry for the inconvenience it caused.\n\nThe root cause has been identified and fixed, and we've put safeguards in place to prevent a repeat. As a small thank-you for your patience, please enjoy 15% off your next order with the code SORRY15.\n\nThank you for sticking with us.\n\nWarm regards,\n[Your Name]",
+    "generated_email": "Subject: Our sincere apologies for the recent checkout outage\n\nHi [Customer Name],\n\nWe’re writing to apologize for the service interruption on June 12 that impacted our checkout page. The outage lasted three hours, and we understand how frustrating it was for you when you couldn’t complete your purchase.\n\nOur team identified the root cause and has fully resolved the issue, so the checkout experience is now stable again.\n\nAs a token of our appreciation for your patience, please enjoy a 15 % discount on your next order with code **SORRY15** at checkout.\n\nIf you have any questions or need further assistance, please don’t hesitate to reach out.\n\nThank you for your understanding.\n\nWarm regards,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "The outage lasted three hours on June 12",
+            "present": true
+          },
+          {
+            "fact": "It affected the checkout page",
+            "present": true
+          },
+          {
+            "fact": "The root cause has been fixed",
+            "present": true
+          },
+          {
+            "fact": "Offer a 15% discount with code SORRY15",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "empathetic and apologetic",
+        "rationale": "The email conveys a sincere and apologetic tone through phrases like 'Our sincere apologies' and 'token of our appreciation'."
+      },
+      "conciseness_fluency": {
+        "reference_words": 97,
+        "generated_words": 118,
+        "length_ratio": 1.216,
+        "length_score": 100.0,
+        "avg_sentence_length": 11.8,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S04_reconnect_colleague",
+    "intent": "Reconnect casually with a former colleague",
+    "tone": "casual and warm",
+    "key_facts": [
+      "We haven't spoken since 2023",
+      "I saw they recently joined Stripe",
+      "Suggest grabbing coffee to catch up",
+      "I'm usually free on Friday mornings"
+    ],
+    "reference_email": "Subject: Long overdue catch-up!\n\nHey Marcus,\n\nIt's been way too long - I think the last time we properly caught up was back in 2023! I saw the news that you recently joined Stripe, and I'd love to hear how it's going.\n\nAny chance you'd be up for grabbing a coffee soon? I'm usually free on Friday mornings, so just say the word and I'll find a spot.\n\nWould be great to reconnect.\n\nCheers,\n[Your Name]",
+    "generated_email": "Subject: Coffee Catch‑up?\n\nHey [Recipient’s Name],\n\nIt’s been a while—since 2023, actually! I noticed you recently joined Stripe—congrats on the new role. I’d love to hear how it’s going and share a few updates from my side.\n\nAre you up for grabbing coffee sometime? I’m usually free on Friday mornings, but I can be flexible if another time works better for you.\n\nLet me know what you think!\n\nBest,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 75.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 91.67
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 3,
+        "assessments": [
+          {
+            "fact": "We haven't spoken since 2023",
+            "present": true
+          },
+          {
+            "fact": "I saw they recently joined Stripe",
+            "present": false
+          },
+          {
+            "fact": "Suggest grabbing coffee to catch up",
+            "present": true
+          },
+          {
+            "fact": "I'm usually free on Friday mornings",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "casual and warm",
+        "rationale": "The email uses casual language and a friendly tone to invite the recipient to catch up."
+      },
+      "conciseness_fluency": {
+        "reference_words": 82,
+        "generated_words": 79,
+        "length_ratio": 0.963,
+        "length_score": 100.0,
+        "avg_sentence_length": 7.9,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written, clear, and naturally phrased."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S05_deadline_escalation",
+    "intent": "Escalate a missed deadline and request an immediate update",
+    "tone": "urgent but professional",
+    "key_facts": [
+      "The deliverable was due yesterday, June 15",
+      "The client launch is on June 20",
+      "I need a status update by end of day today",
+      "Call me directly if you are blocked"
+    ],
+    "reference_email": "Subject: Action needed today - June 15 deliverable is overdue\n\nHi Tom,\n\nI'm flagging this with some urgency: the deliverable due yesterday, June 15, hasn't come through yet, and with the client launch on June 20 we have very little buffer left.\n\nCould you please send me a clear status update by end of day today? If anything is blocking you, call me directly and we'll sort it out together right away.\n\nThanks for jumping on this.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Immediate Status Needed – Deliverable Due June 15\n\nHi [Recipient’s Name],\n\nThe deliverable that was due yesterday, June 15, is still outstanding, and our client launch is scheduled for June 20. I need a concise status update by the end of today so we can assess any gaps and keep the launch on track.\n\nIf you’re encountering any blockers, please call me directly so we can resolve them right away.\n\nThank you for your prompt attention.\n\nBest regards,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "The deliverable was due yesterday, June 15",
+            "present": true
+          },
+          {
+            "fact": "The client launch is on June 20",
+            "present": true
+          },
+          {
+            "fact": "I need a status update by end of day today",
+            "present": true
+          },
+          {
+            "fact": "Call me directly if you are blocked",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "urgent but professional",
+        "rationale": "The email conveys a sense of urgency while maintaining professionalism."
+      },
+      "conciseness_fluency": {
+        "reference_words": 82,
+        "generated_words": 82,
+        "length_ratio": 1.0,
+        "length_score": 100.0,
+        "avg_sentence_length": 10.2,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S06_partner_pitch",
+    "intent": "Pitch a potential partner on an integration opportunity",
+    "tone": "persuasive and confident",
+    "key_facts": [
+      "Our platform is 40% faster than the leading alternative",
+      "We have over 10,000 active users",
+      "We offer a free 30-day pilot",
+      "Integration typically takes about two weeks"
+    ],
+    "reference_email": "Subject: A partnership your users will thank you for\n\nHi Dana,\n\nI'll keep this brief because I think the fit is obvious. Our platform runs 40% faster than the leading alternative and already serves more than 10,000 active users - and I believe your customers would feel the difference immediately.\n\nTo make saying yes easy, we offer a free 30-day pilot, and integration typically takes about two weeks with our team doing the heavy lifting.\n\nCould we grab 20 minutes this week to explore it? I'm confident it'll be worth your time.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Unlock Faster Performance — A Seamless Integration Opportunity\n\nHi [Recipient’s Name],\n\nI’m reaching out because I believe a partnership between our companies could deliver immediate value to your customers. Our platform runs **40% faster than the leading alternative**, a performance edge that resonates with the **10,000+ active users** who already rely on us daily.\n\nTo demonstrate the impact, we’d like to offer you a **free 30‑day pilot**—no commitment, just a chance to see the speed and reliability firsthand. Our integration process is streamlined and typically completes in **about two weeks**, so you can start reaping benefits quickly.\n\nCan we schedule a brief call next week to walk through the pilot setup and outline the integration timeline? Please let me know a convenient time, or feel free to pick a slot on my calendar [insert link].\n\nLooking forward to building something great together.\n\nBest regards,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 83.76,
+      "overall": 94.59
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "Our platform is 40% faster than the leading alternative",
+            "present": true
+          },
+          {
+            "fact": "We have over 10,000 active users",
+            "present": true
+          },
+          {
+            "fact": "We offer a free 30-day pilot",
+            "present": true
+          },
+          {
+            "fact": "Integration typically takes about two weeks",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "persuasive and confident",
+        "rationale": "The email confidently presents the benefits of the platform and invites the recipient to a pilot, perfectly matching the persuasive and confident tone."
+      },
+      "conciseness_fluency": {
+        "reference_words": 99,
+        "generated_words": 152,
+        "length_ratio": 1.535,
+        "length_score": 67.5,
+        "avg_sentence_length": 13.8,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written, with flawless grammar, natural phrasing, and clear sentences."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S07_invoice_reminder",
+    "intent": "Send a polite reminder about an overdue invoice",
+    "tone": "polite and concise",
+    "key_facts": [
+      "Invoice number 4821 for $1,250",
+      "It was due on June 1",
+      "It is now 14 days overdue",
+      "A secure payment link is included"
+    ],
+    "reference_email": "Subject: Friendly reminder - Invoice #4821\n\nHi Alex,\n\nJust a gentle reminder that invoice #4821 for $1,250 was due on June 1 and is now 14 days overdue.\n\nIf it's already on its way, thank you and please ignore this note. Otherwise, you can settle it quickly using the secure payment link below.\n\nHappy to help if you have any questions.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Friendly reminder – Invoice #4821 (due June 1)\n\nHi [Recipient’s Name],\n\nI hope you’re well. This is a quick reminder that invoice #4821 for **$1,250** was due on **June 1** and is now **14 days overdue**.\n\nFor your convenience, you can settle the balance securely using the payment link below:\n\n[Insert Secure Payment Link]\n\nPlease let me know if you have any questions. Thank you for your prompt attention.\n\nBest regards,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "Invoice number 4821 for $1,250",
+            "present": true
+          },
+          {
+            "fact": "It was due on June 1",
+            "present": true
+          },
+          {
+            "fact": "It is now 14 days overdue",
+            "present": true
+          },
+          {
+            "fact": "A secure payment link is included",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "polite and concise",
+        "rationale": "The tone is polite and concise, matching the requested tone perfectly."
+      },
+      "conciseness_fluency": {
+        "reference_words": 65,
+        "generated_words": 76,
+        "length_ratio": 1.169,
+        "length_score": 100.0,
+        "avg_sentence_length": 7.6,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email has flawless grammar, natural phrasing, and is well-written."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S08_interview_thankyou",
+    "intent": "Send a thank-you note after a job interview",
+    "tone": "appreciative and professional",
+    "key_facts": [
+      "Interviewed for the Senior Data Engineer role on June 10",
+      "Enjoyed discussing the recommendation pipeline",
+      "Want to reiterate strong interest in the role",
+      "Available to start in July"
+    ],
+    "reference_email": "Subject: Thank you - Senior Data Engineer interview\n\nDear Hiring Team,\n\nThank you for the opportunity to interview for the Senior Data Engineer role on June 10. I especially enjoyed our discussion about the recommendation pipeline - it's exactly the kind of problem I find energizing.\n\nThe conversation only strengthened my interest in the role, and I'd be glad to bring my experience to the team. Should things move forward, I'm available to start in July.\n\nThank you again for your time and consideration.\n\nBest regards,\n[Your Name]",
+    "generated_email": "Subject: Thank You – Senior Data Engineer Interview (June 10)\n\nHi [Interviewer’s Name],\n\nThank you for the opportunity to interview for the Senior Data Engineer role on June 10. I enjoyed our conversation about the recommendation pipeline and appreciated the insight you shared on the team’s vision.\n\nI remain very enthusiastic about the position and believe my experience aligns well with the challenges ahead. I wanted to reiterate my strong interest and let you know I am available to start in July.\n\nPlease let me know if there’s any additional information I can provide or the next steps in the process. I look forward to the possibility of contributing to the team.\n\nBest regards,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 95.45,
+      "overall": 98.48
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "Interviewed for the Senior Data Engineer role on June 10",
+            "present": true
+          },
+          {
+            "fact": "Enjoyed discussing the recommendation pipeline",
+            "present": true
+          },
+          {
+            "fact": "Want to reiterate strong interest in the role",
+            "present": true
+          },
+          {
+            "fact": "Available to start in July",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "appreciative and professional",
+        "rationale": "The email conveys a professional and appreciative tone throughout."
+      },
+      "conciseness_fluency": {
+        "reference_words": 89,
+        "generated_words": 118,
+        "length_ratio": 1.326,
+        "length_score": 90.9,
+        "avg_sentence_length": 11.8,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S09_policy_announcement",
+    "intent": "Announce a new internal policy to staff",
+    "tone": "clear and neutral",
+    "key_facts": [
+      "A new hybrid work policy takes effect on July 1",
+      "Staff are expected in the office three days a week, Tuesday to Thursday",
+      "Questions should go to HR by June 25"
+    ],
+    "reference_email": "Subject: New hybrid work policy - effective July 1\n\nHi everyone,\n\nI'm writing to share an update to how we work together. Starting July 1, we're moving to a new hybrid work policy.\n\nUnder the new arrangement, staff are expected in the office three days a week, Tuesday through Thursday, with the remaining days flexible. This gives us reliable time together for collaboration while keeping the flexibility many of you value.\n\nIf you have any questions or concerns, please reach out to HR by June 25 so we can address them before the change takes effect.\n\nThank you,\n[Your Name]",
+    "generated_email": "Subject: New Hybrid Work Policy Effective July 1\n\nDear Team,\n\nStarting July 1, we will implement a new hybrid work policy. All staff are expected to be in the office three days each week—Tuesday, Wednesday, and Thursday—and may work remotely on the remaining days.\n\nIf you have any questions about the policy, please direct them to HR no later than June 25.\n\nThank you for your cooperation.\n\n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 92.72,
+      "overall": 97.57
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 3,
+        "facts_present": 3,
+        "assessments": [
+          {
+            "fact": "A new hybrid work policy takes effect on July 1",
+            "present": true
+          },
+          {
+            "fact": "Staff are expected in the office three days a week, Tuesday to Thursday",
+            "present": true
+          },
+          {
+            "fact": "Questions should go to HR by June 25",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "clear and neutral",
+        "rationale": "The tone is clear and neutral, conveying policy information without emotional language."
+      },
+      "conciseness_fluency": {
+        "reference_words": 101,
+        "generated_words": 71,
+        "length_ratio": 0.703,
+        "length_score": 85.4,
+        "avg_sentence_length": 10.1,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written, with flawless grammar and natural phrasing."
+      }
+    }
+  },
+  {
+    "model": "gpt-oss-120b",
+    "model_id": "openai/gpt-oss-120b",
+    "scenario_id": "S10_decline_meeting",
+    "intent": "Decline a meeting request gracefully and offer an alternative",
+    "tone": "courteous and diplomatic",
+    "key_facts": [
+      "I can't attend the workshop on June 18",
+      "I have a prior commitment that day",
+      "Suggest sharing async notes instead",
+      "Happy to review the recording afterward"
+    ],
+    "reference_email": "Subject: Re: Workshop on June 18\n\nHi Lena,\n\nThank you for the invitation to the workshop on June 18. Unfortunately, I have a prior commitment that day and won't be able to join in person.\n\nI don't want to hold things up, so perhaps we could share async notes so I can still contribute my input. I'd also be very happy to review the recording afterward and follow up with any thoughts.\n\nApologies for the clash, and thank you for understanding.\n\nBest,\n[Your Name]",
+    "generated_email": "Subject: Regretfully Unable to Join the June 18 Workshop\n\nHi [Recipient’s Name],\n\nThank you for the invitation to the workshop on June 18. Unfortunately, I have a prior commitment that day and won’t be able to attend.\n\nIf you could share the asynchronous notes afterward, I’ll review them promptly, and I’m also happy to watch the recording once it’s available.\n\nPlease let me know if there’s anything specific you’d like my input on ahead of time.\n\nBest regards,  \n[Your Name]",
+    "scores": {
+      "fact_recall": 100.0,
+      "tone_accuracy": 100.0,
+      "conciseness_fluency": 100.0,
+      "overall": 100.0
+    },
+    "details": {
+      "fact_recall": {
+        "facts_total": 4,
+        "facts_present": 4,
+        "assessments": [
+          {
+            "fact": "I can't attend the workshop on June 18",
+            "present": true
+          },
+          {
+            "fact": "I have a prior commitment that day",
+            "present": true
+          },
+          {
+            "fact": "Suggest sharing async notes instead",
+            "present": true
+          },
+          {
+            "fact": "Happy to review the recording afterward",
+            "present": true
+          }
+        ]
+      },
+      "tone_accuracy": {
+        "tone_score_1_5": 5,
+        "requested_tone": "courteous and diplomatic",
+        "rationale": "The email maintains a polite and considerate tone throughout."
+      },
+      "conciseness_fluency": {
+        "reference_words": 87,
+        "generated_words": 87,
+        "length_ratio": 1.0,
+        "length_score": 100.0,
+        "avg_sentence_length": 10.9,
+        "fluency_score_1_5": 5,
+        "fluency_rationale": "The email is well-written with flawless grammar and natural phrasing."
+      }
+    }
+  }
+]

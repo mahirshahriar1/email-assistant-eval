@@ -1,0 +1,121 @@
+[
+  {
+    "id": "S01_sales_followup",
+    "intent": "Follow up after a sales meeting and propose next steps",
+    "key_facts": [
+      "We met on Tuesday, June 9",
+      "Discussed the Enterprise plan at $2,400 per year",
+      "I will send the customer case study I mentioned",
+      "Propose a follow-up call next Thursday at 2:00pm"
+    ],
+    "tone": "professional and friendly",
+    "reference_email": "Subject: Great speaking on Tuesday - next steps\n\nHi Priya,\n\nThank you for taking the time to meet on Tuesday, June 9. I really enjoyed our conversation about how the Enterprise plan ($2,400/year) could support your team's goals.\n\nAs promised, I'll send over the customer case study I mentioned so you can see the results in a similar setup. To keep things moving, would you be open to a follow-up call next Thursday at 2:00pm to walk through any questions?\n\nLooking forward to it.\n\nBest,\n[Your Name]"
+  },
+  {
+    "id": "S02_rfp_request",
+    "intent": "Request proposal details from a vendor for a project",
+    "key_facts": [
+      "Project: Atlas CRM migration",
+      "Budget is capped at 50,000 pounds",
+      "We need the proposal by June 30",
+      "Point of contact is Sarah Lin"
+    ],
+    "tone": "formal",
+    "reference_email": "Subject: Request for Proposal - Atlas CRM Migration\n\nDear Vendor Team,\n\nWe are inviting proposals for the Atlas CRM migration project and would welcome your submission.\n\nThe budget for this engagement is capped at 50,000 pounds. Please ensure your proposal addresses scope, timeline, and a detailed cost breakdown within that figure, and submit it to us by June 30.\n\nAll questions and the final proposal should be directed to our point of contact, Sarah Lin. We look forward to reviewing your response.\n\nYours sincerely,\n[Your Name]"
+  },
+  {
+    "id": "S03_outage_apology",
+    "intent": "Apologize to customers for a service outage and offer a goodwill gesture",
+    "key_facts": [
+      "The outage lasted three hours on June 12",
+      "It affected the checkout page",
+      "The root cause has been fixed",
+      "Offer a 15% discount with code SORRY15"
+    ],
+    "tone": "empathetic and apologetic",
+    "reference_email": "Subject: We're sorry about Friday's disruption\n\nHi there,\n\nI want to personally apologize for the service disruption on June 12, when our checkout page was unavailable for roughly three hours. I know how frustrating that timing can be, and we're sorry for the inconvenience it caused.\n\nThe root cause has been identified and fixed, and we've put safeguards in place to prevent a repeat. As a small thank-you for your patience, please enjoy 15% off your next order with the code SORRY15.\n\nThank you for sticking with us.\n\nWarm regards,\n[Your Name]"
+  },
+  {
+    "id": "S04_reconnect_colleague",
+    "intent": "Reconnect casually with a former colleague",
+    "key_facts": [
+      "We haven't spoken since 2023",
+      "I saw they recently joined Stripe",
+      "Suggest grabbing coffee to catch up",
+      "I'm usually free on Friday mornings"
+    ],
+    "tone": "casual and warm",
+    "reference_email": "Subject: Long overdue catch-up!\n\nHey Marcus,\n\nIt's been way too long - I think the last time we properly caught up was back in 2023! I saw the news that you recently joined Stripe, and I'd love to hear how it's going.\n\nAny chance you'd be up for grabbing a coffee soon? I'm usually free on Friday mornings, so just say the word and I'll find a spot.\n\nWould be great to reconnect.\n\nCheers,\n[Your Name]"
+  },
+  {
+    "id": "S05_deadline_escalation",
+    "intent": "Escalate a missed deadline and request an immediate update",
+    "key_facts": [
+      "The deliverable was due yesterday, June 15",
+      "The client launch is on June 20",
+      "I need a status update by end of day today",
+      "Call me directly if you are blocked"
+    ],
+    "tone": "urgent but professional",
+    "reference_email": "Subject: Action needed today - June 15 deliverable is overdue\n\nHi Tom,\n\nI'm flagging this with some urgency: the deliverable due yesterday, June 15, hasn't come through yet, and with the client launch on June 20 we have very little buffer left.\n\nCould you please send me a clear status update by end of day today? If anything is blocking you, call me directly and we'll sort it out together right away.\n\nThanks for jumping on this.\n\nBest,\n[Your Name]"
+  },
+  {
+    "id": "S06_partner_pitch",
+    "intent": "Pitch a potential partner on an integration opportunity",
+    "key_facts": [
+      "Our platform is 40% faster than the leading alternative",
+      "We have over 10,000 active users",
+      "We offer a free 30-day pilot",
+      "Integration typically takes about two weeks"
+    ],
+    "tone": "persuasive and confident",
+    "reference_email": "Subject: A partnership your users will thank you for\n\nHi Dana,\n\nI'll keep this brief because I think the fit is obvious. Our platform runs 40% faster than the leading alternative and already serves more than 10,000 active users - and I believe your customers would feel the difference immediately.\n\nTo make saying yes easy, we offer a free 30-day pilot, and integration typically takes about two weeks with our team doing the heavy lifting.\n\nCould we grab 20 minutes this week to explore it? I'm confident it'll be worth your time.\n\nBest,\n[Your Name]"
+  },
+  {
+    "id": "S07_invoice_reminder",
+    "intent": "Send a polite reminder about an overdue invoice",
+    "key_facts": [
+      "Invoice number 4821 for $1,250",
+      "It was due on June 1",
+      "It is now 14 days overdue",
+      "A secure payment link is included"
+    ],
+    "tone": "polite and concise",
+    "reference_email": "Subject: Friendly reminder - Invoice #4821\n\nHi Alex,\n\nJust a gentle reminder that invoice #4821 for $1,250 was due on June 1 and is now 14 days overdue.\n\nIf it's already on its way, thank you and please ignore this note. Otherwise, you can settle it quickly using the secure payment link below.\n\nHappy to help if you have any questions.\n\nBest,\n[Your Name]"
+  },
+  {
+    "id": "S08_interview_thankyou",
+    "intent": "Send a thank-you note after a job interview",
+    "key_facts": [
+      "Interviewed for the Senior Data Engineer role on June 10",
+      "Enjoyed discussing the recommendation pipeline",
+      "Want to reiterate strong interest in the role",
+      "Available to start in July"
+    ],
+    "tone": "appreciative and professional",
+    "reference_email": "Subject: Thank you - Senior Data Engineer interview\n\nDear Hiring Team,\n\nThank you for the opportunity to interview for the Senior Data Engineer role on June 10. I especially enjoyed our discussion about the recommendation pipeline - it's exactly the kind of problem I find energizing.\n\nThe conversation only strengthened my interest in the role, and I'd be glad to bring my experience to the team. Should things move forward, I'm available to start in July.\n\nThank you again for your time and consideration.\n\nBest regards,\n[Your Name]"
+  },
+  {
+    "id": "S09_policy_announcement",
+    "intent": "Announce a new internal policy to staff",
+    "key_facts": [
+      "A new hybrid work policy takes effect on July 1",
+      "Staff are expected in the office three days a week, Tuesday to Thursday",
+      "Questions should go to HR by June 25"
+    ],
+    "tone": "clear and neutral",
+    "reference_email": "Subject: New hybrid work policy - effective July 1\n\nHi everyone,\n\nI'm writing to share an update to how we work together. Starting July 1, we're moving to a new hybrid work policy.\n\nUnder the new arrangement, staff are expected in the office three days a week, Tuesday through Thursday, with the remaining days flexible. This gives us reliable time together for collaboration while keeping the flexibility many of you value.\n\nIf you have any questions or concerns, please reach out to HR by June 25 so we can address them before the change takes effect.\n\nThank you,\n[Your Name]"
+  },
+  {
+    "id": "S10_decline_meeting",
+    "intent": "Decline a meeting request gracefully and offer an alternative",
+    "key_facts": [
+      "I can't attend the workshop on June 18",
+      "I have a prior commitment that day",
+      "Suggest sharing async notes instead",
+      "Happy to review the recording afterward"
+    ],
+    "tone": "courteous and diplomatic",
+    "reference_email": "Subject: Re: Workshop on June 18\n\nHi Lena,\n\nThank you for the invitation to the workshop on June 18. Unfortunately, I have a prior commitment that day and won't be able to join in person.\n\nI don't want to hold things up, so perhaps we could share async notes so I can still contribute my input. I'd also be very happy to review the recording afterward and follow up with any thoughts.\n\nApologies for the clash, and thank you for understanding.\n\nBest,\n[Your Name]"
+  }
+]

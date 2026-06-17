@@ -1,0 +1,106 @@
+{
+  "run_meta": {
+    "started_utc": "2026-06-17T07:42:11.396511+00:00",
+    "finished_utc": "2026-06-17T07:45:20.153525+00:00",
+    "models": {
+      "llama-3.3-70b": "llama-3.3-70b-versatile",
+      "gpt-oss-120b": "openai/gpt-oss-120b"
+    },
+    "judge_model": "llama-3.3-70b-versatile",
+    "gen_temperature": 0.3,
+    "judge_temperature": 0.0,
+    "n_scenarios": 10
+  },
+  "metric_definitions": {
+    "fact_recall": {
+      "focus": "Fact Recall / Specificity",
+      "technique": "Structured LLM check (per-fact yes/no) scored deterministically in Python",
+      "logic": "score = (facts marked present / total required facts) * 100",
+      "why": "Dropping a required fact is a functional failure regardless of writing quality."
+    },
+    "tone_accuracy": {
+      "focus": "Tone Accuracy",
+      "technique": "LLM-as-judge, 1-5 rubric",
+      "logic": "rubric score (1-5) * 20 -> 0-100",
+      "why": "Tone is subjective and holistic; a keyword heuristic cannot judge it."
+    },
+    "conciseness_fluency": {
+      "focus": "Conciseness & Grammar/Fluency",
+      "technique": "Hybrid: pure-Python length analysis vs the human reference + LLM fluency rubric",
+      "logic": "0.5 * length_band_score(len/ref_len, Python) + 0.5 * (fluency 1-5 * 20, LLM)",
+      "why": "A correct, on-tone email still fails if it is bloated or clumsy."
+    }
+  },
+  "per_model": {
+    "llama-3.3-70b": {
+      "fact_recall": {
+        "mean": 100.0,
+        "stdev": 0.0,
+        "min": 100.0,
+        "max": 100.0
+      },
+      "tone_accuracy": {
+        "mean": 100.0,
+        "stdev": 0.0,
+        "min": 100.0,
+        "max": 100.0
+      },
+      "conciseness_fluency": {
+        "mean": 88.88,
+        "stdev": 9.99,
+        "min": 73.63,
+        "max": 100.0
+      },
+      "overall": {
+        "mean": 96.29,
+        "stdev": 3.33,
+        "min": 91.21,
+        "max": 100.0
+      }
+    },
+    "gpt-oss-120b": {
+      "fact_recall": {
+        "mean": 97.5,
+        "stdev": 7.5,
+        "min": 75.0,
+        "max": 100.0
+      },
+      "tone_accuracy": {
+        "mean": 100.0,
+        "stdev": 0.0,
+        "min": 100.0,
+        "max": 100.0
+      },
+      "conciseness_fluency": {
+        "mean": 97.19,
+        "stdev": 5.09,
+        "min": 83.76,
+        "max": 100.0
+      },
+      "overall": {
+        "mean": 98.23,
+        "stdev": 2.75,
+        "min": 91.67,
+        "max": 100.0
+      }
+    }
+  },
+  "winners": {
+    "fact_recall": {
+      "winner": "llama-3.3-70b",
+      "margin_vs_other": 2.5
+    },
+    "tone_accuracy": {
+      "winner": "llama-3.3-70b",
+      "margin_vs_other": 0.0
+    },
+    "conciseness_fluency": {
+      "winner": "gpt-oss-120b",
+      "margin_vs_other": 8.31
+    },
+    "overall": {
+      "winner": "gpt-oss-120b",
+      "margin_vs_other": 1.94
+    }
+  }
+}

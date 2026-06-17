@@ -1,0 +1,21 @@
+model,scenario_id,intent,tone,fact_recall,tone_accuracy,conciseness_fluency,overall
+llama-3.3-70b,S01_sales_followup,Follow up after a sales meeting and propose next steps,professional and friendly,100.0,100.0,83.48,94.49
+llama-3.3-70b,S02_rfp_request,Request proposal details from a vendor for a project,formal,100.0,100.0,75.64,91.88
+llama-3.3-70b,S03_outage_apology,Apologize to customers for a service outage and offer a goodwill gesture,empathetic and apologetic,100.0,100.0,73.63,91.21
+llama-3.3-70b,S04_reconnect_colleague,Reconnect casually with a former colleague,casual and warm,100.0,100.0,100.0,100.0
+llama-3.3-70b,S05_deadline_escalation,Escalate a missed deadline and request an immediate update,urgent but professional,100.0,100.0,100.0,100.0
+llama-3.3-70b,S06_partner_pitch,Pitch a potential partner on an integration opportunity,persuasive and confident,100.0,100.0,81.29,93.76
+llama-3.3-70b,S07_invoice_reminder,Send a polite reminder about an overdue invoice,polite and concise,100.0,100.0,100.0,100.0
+llama-3.3-70b,S08_interview_thankyou,Send a thank-you note after a job interview,appreciative and professional,100.0,100.0,88.71,96.24
+llama-3.3-70b,S09_policy_announcement,Announce a new internal policy to staff,clear and neutral,100.0,100.0,100.0,100.0
+llama-3.3-70b,S10_decline_meeting,Decline a meeting request gracefully and offer an alternative,courteous and diplomatic,100.0,100.0,86.03,95.34
+gpt-oss-120b,S01_sales_followup,Follow up after a sales meeting and propose next steps,professional and friendly,100.0,100.0,100.0,100.0
+gpt-oss-120b,S02_rfp_request,Request proposal details from a vendor for a project,formal,100.0,100.0,100.0,100.0
+gpt-oss-120b,S03_outage_apology,Apologize to customers for a service outage and offer a goodwill gesture,empathetic and apologetic,100.0,100.0,100.0,100.0
+gpt-oss-120b,S04_reconnect_colleague,Reconnect casually with a former colleague,casual and warm,75.0,100.0,100.0,91.67
+gpt-oss-120b,S05_deadline_escalation,Escalate a missed deadline and request an immediate update,urgent but professional,100.0,100.0,100.0,100.0
+gpt-oss-120b,S06_partner_pitch,Pitch a potential partner on an integration opportunity,persuasive and confident,100.0,100.0,83.76,94.59
+gpt-oss-120b,S07_invoice_reminder,Send a polite reminder about an overdue invoice,polite and concise,100.0,100.0,100.0,100.0
+gpt-oss-120b,S08_interview_thankyou,Send a thank-you note after a job interview,appreciative and professional,100.0,100.0,95.45,98.48
+gpt-oss-120b,S09_policy_announcement,Announce a new internal policy to staff,clear and neutral,100.0,100.0,92.72,97.57
+gpt-oss-120b,S10_decline_meeting,Decline a meeting request gracefully and offer an alternative,courteous and diplomatic,100.0,100.0,100.0,100.0
