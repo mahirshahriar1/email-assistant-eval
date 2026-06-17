@@ -29,11 +29,25 @@ cp .env.example .env          # then paste your Groq key into .env
 
 Get a free key at <https://console.groq.com/keys>.
 
-## 3. Run
+## 3. Use the assistant (browser UI)
+
+```bash
+python -m src.app
+# open http://127.0.0.1:5000
+```
+
+Enter an **Intent**, **Key Facts** (one per line), and a **Tone**, pick a model, and click
+**Generate email**. This is the "working prototype" surface and uses the same generator as the
+evaluation. (Prefer the terminal? `python -m src.assistant --help` does the same one-off.)
+
+![web UI: a form for Intent / Key Facts / Tone on the left, generated email on the right]
+
+## 4. Run the evaluation
 
 ```bash
 python -m tests.smoke_test    # cheap 1-scenario sanity check (2 API calls)
 python -m src.evaluate        # full run: 10 scenarios x 2 models -> results/
+python -m scripts.render_report   # results/ -> report/REPORT.pdf
 ```
 
 Outputs land in `results/`:
@@ -47,7 +61,7 @@ Outputs land in `results/`:
 
 ---
 
-## 4. The advanced prompting technique
+## 5. The advanced prompting technique
 
 The prompt (`src/prompts.py`) combines **three** techniques, and the *same* template is sent
 to both models so the comparison isolates the model:
@@ -65,7 +79,7 @@ to both models so the comparison isolates the model:
 
 ---
 
-## 5. The three custom metrics
+## 6. The three custom metrics
 
 Design principle: **match the measurement technique to the nature of the quality.**
 
@@ -88,7 +102,7 @@ The full results and analysis live in **[`report/REPORT.md`](report/REPORT.md)**
 
 ---
 
-## 6. Project layout
+## 7. Project layout
 
 ```
 src/config.py      models, reproducibility params, rate-limit settings, paths
@@ -96,14 +110,17 @@ src/llm_client.py  Groq wrapper: retry/backoff on 429, JSON mode, inter-call sle
 src/prompts.py     advanced prompt (role-play + few-shot + CoT)
 src/generate.py    generate_email(scenario, model)
 src/metrics.py     the 3 custom metrics + shared judge
-src/evaluate.py    orchestrator + results writers
+src/evaluate.py    evaluation orchestrator + results writers
+src/app.py         Flask browser UI (the working prototype surface)
+src/assistant.py   CLI entry point (same generator, terminal)
 data/scenarios.json  10 scenarios + human reference emails
 results/             generated outputs (committed - they are a deliverable)
 report/REPORT.md     final report (prompt, metric defs, raw data, analysis)
+scripts/render_report.py  REPORT.md -> REPORT.pdf
 tests/smoke_test.py  cheap pipeline check
 ```
 
-## 7. Notes & limitations
+## 8. Notes & limitations
 
 - **n = 10** is a small sample — the report reports per-metric spread and avoids over-claiming.
 - **LLM-as-judge** has known biases (verbosity, self-consistency); the single-neutral-judge +

@@ -2,6 +2,7 @@ groq>=0.11.0
 python-dotenv>=1.0.0
 pandas>=2.0.0
 tabulate>=0.9.0
+flask>=3.0.0
 
 # Report rendering (REPORT.md -> REPORT.pdf via scripts/render_report.py)
 markdown>=3.5
