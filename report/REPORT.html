@@ -1,0 +1,348 @@
+<html><head><meta charset='utf-8'><style>
+@page { size: A4; margin: 1.6cm; }
+body { font-family: Helvetica, Arial, sans-serif; font-size: 10.5pt; color: #1a1a1a; line-height: 1.45; }
+h1 { font-size: 19pt; border-bottom: 2px solid #333; padding-bottom: 4px; }
+h2 { font-size: 14pt; margin-top: 18px; color: #222; border-bottom: 1px solid #ccc; padding-bottom: 2px; }
+h3 { font-size: 11.5pt; margin-top: 12px; color: #333; }
+table { border-collapse: collapse; width: 100%; margin: 8px 0; font-size: 8.8pt; }
+th, td { border: 1px solid #bbb; padding: 4px 6px; text-align: left; }
+th { background: #f0f0f0; }
+code { background: #f4f4f4; padding: 1px 3px; font-size: 9pt; }
+blockquote { border-left: 3px solid #ccc; margin: 6px 0; padding: 2px 10px; color: #444; font-style: italic; }
+strong { color: #000; }
+</style></head><body><h1>Final Report — Email Generation Assistant &amp; Evaluation</h1>
+<p><strong>Task:</strong> build an LLM email assistant (Intent + Key Facts + Tone → professional email),
+design 3 custom quality metrics, and compare two models on 10 scenarios.
+<strong>Provider:</strong> Groq (free tier). <strong>Models:</strong> <code>llama-3.3-70b-versatile</code> (Meta) vs
+<code>openai/gpt-oss-120b</code> (OpenAI open-weight). <strong>Judge:</strong> <code>llama-3.3-70b-versatile</code> @ <code>temp=0</code>.</p>
+<hr />
+<h2>1. The Prompt Template (advanced prompting technique)</h2>
+<p>The assistant uses <strong>three</strong> techniques in one template, sent identically to both models so the
+comparison isolates the model. (Source: <code>src/prompts.py</code>.)</p>
+<p><strong>(a) Role-Playing — system prompt</strong></p>
+<blockquote>
+<p><em>You are an expert executive communications assistant who ghost-writes professional emails for
+busy leaders... You never invent facts, you weave in every fact you are given naturally, and you
+write tight, skimmable prose with a clear call to action.</em></p>
+</blockquote>
+<p><strong>(b) Few-Shot</strong> — two compact <code>input → ideal email</code> exemplars (a friendly scheduling email and an
+empathetic apology) are inserted as prior user/assistant turns. They teach the output format and
+the "include every fact, match the tone" contract by demonstration.</p>
+<p><strong>(c) Chain-of-Thought (hidden)</strong> — the task turn appends:</p>
+<blockquote>
+<p><em>Before writing, plan silently (do NOT show this): 1. recipient &amp; goal; 2. check off each key
+fact and where it fits; 3. calibrate vocabulary/warmth/urgency to the tone; 4. structure (subject,
+greeting, tight body, clear CTA, sign-off). Then output ONLY the final email.</em></p>
+</blockquote>
+<p><strong>Why this combination:</strong> role-play sets register; few-shot locks format and the fact/tone contract;
+hidden CoT raises fact coverage and structure while keeping the output clean for both a reasoning
+model (gpt-oss) and a non-reasoning one (llama).</p>
+<hr />
+<h2>2. The Three Custom Metrics (definitions &amp; logic)</h2>
+<p>Design principle: <strong>match the measurement technique to the nature of the quality</strong> — measure what is
+objective, judge what is subjective. All three return 0–100. (Source: <code>src/metrics.py</code>.)</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Metric</th>
+<th>Focus</th>
+<th>Technique</th>
+<th>Logic</th>
+<th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Fact Recall</strong></td>
+<td>Fact Recall / Specificity</td>
+<td>Structured LLM check (per-fact yes/no) → scored in Python</td>
+<td><code>present / total × 100</code></td>
+<td>Dropping a required fact (price, date, order #) is a functional failure regardless of polish. Most important correctness metric.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Tone Accuracy</strong></td>
+<td>Tone Accuracy</td>
+<td>LLM-as-judge, 1–5 rubric</td>
+<td><code>rubric × 20</code></td>
+<td>Tone is subjective/holistic; a keyword heuristic can't tell "warm" from "curt".</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Conciseness &amp; Fluency</strong></td>
+<td>Conciseness + Grammar/Fluency</td>
+<td><strong>Hybrid</strong>: pure-Python length analysis vs the human reference <strong>+</strong> LLM fluency rubric</td>
+<td><code>0.5 × length_band(len/ref_len) + 0.5 × (fluency 1–5 × 20)</code></td>
+<td>A correct, on-tone email still fails if it's bloated or clumsy.</td>
+</tr>
+</tbody>
+</table>
+<p>For Metric 3, the <strong>Python</strong> half scores how close the email's word count is to the <em>ideal human
+reference</em> length (full marks within 0.80–1.25× the reference, tapering outside), with a sentence-length
+sanity check; the <strong>LLM</strong> half scores grammar/natural phrasing only.</p>
+<p><strong>Judge integrity:</strong> one fixed neutral judge scores <em>both</em> candidates at <code>temperature=0</code> (removes
+self-preference bias, deterministic). The model-dependent parts share <strong>one</strong> structured judge call
+per email for token efficiency.</p>
+<hr />
+<h2>3. Raw Evaluation Data</h2>
+<p>Per-scenario scores (full data: <code>results/scores.csv</code>, <code>results/scores.json</code>; emails: <code>results/generations.json</code>).</p>
+<h3>llama-3.3-70b</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Tone</th>
+<th>Fact</th>
+<th>Tone</th>
+<th>Concise/Flu</th>
+<th>Overall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01 sales follow-up</td>
+<td>professional/friendly</td>
+<td>100</td>
+<td>100</td>
+<td>83.5</td>
+<td>94.5</td>
+</tr>
+<tr>
+<td>S02 RFP request</td>
+<td>formal</td>
+<td>100</td>
+<td>100</td>
+<td>75.6</td>
+<td>91.9</td>
+</tr>
+<tr>
+<td>S03 outage apology</td>
+<td>empathetic</td>
+<td>100</td>
+<td>100</td>
+<td>73.6</td>
+<td>91.2</td>
+</tr>
+<tr>
+<td>S04 reconnect colleague</td>
+<td>casual/warm</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S05 deadline escalation</td>
+<td>urgent</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S06 partner pitch</td>
+<td>persuasive</td>
+<td>100</td>
+<td>100</td>
+<td>81.3</td>
+<td>93.8</td>
+</tr>
+<tr>
+<td>S07 invoice reminder</td>
+<td>polite/concise</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S08 interview thank-you</td>
+<td>appreciative</td>
+<td>100</td>
+<td>100</td>
+<td>88.7</td>
+<td>96.2</td>
+</tr>
+<tr>
+<td>S09 policy announcement</td>
+<td>clear/neutral</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S10 decline meeting</td>
+<td>courteous</td>
+<td>100</td>
+<td>100</td>
+<td>86.0</td>
+<td>95.3</td>
+</tr>
+</tbody>
+</table>
+<h3>gpt-oss-120b</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Tone</th>
+<th>Fact</th>
+<th>Tone</th>
+<th>Concise/Flu</th>
+<th>Overall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01 sales follow-up</td>
+<td>professional/friendly</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S02 RFP request</td>
+<td>formal</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S03 outage apology</td>
+<td>empathetic</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S04 reconnect colleague</td>
+<td>casual/warm</td>
+<td><strong>75</strong></td>
+<td>100</td>
+<td>100</td>
+<td>91.7</td>
+</tr>
+<tr>
+<td>S05 deadline escalation</td>
+<td>urgent</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S06 partner pitch</td>
+<td>persuasive</td>
+<td>100</td>
+<td>100</td>
+<td>83.8</td>
+<td>94.6</td>
+</tr>
+<tr>
+<td>S07 invoice reminder</td>
+<td>polite/concise</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>S08 interview thank-you</td>
+<td>appreciative</td>
+<td>100</td>
+<td>100</td>
+<td>95.5</td>
+<td>98.5</td>
+</tr>
+<tr>
+<td>S09 policy announcement</td>
+<td>clear/neutral</td>
+<td>100</td>
+<td>100</td>
+<td>92.7</td>
+<td>97.6</td>
+</tr>
+<tr>
+<td>S10 decline meeting</td>
+<td>courteous</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+<h3>Aggregate (mean over 10 scenarios; ± = population std)</h3>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Fact Recall</th>
+<th>Tone Accuracy</th>
+<th>Concise/Fluency</th>
+<th><strong>Overall</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>llama-3.3-70b</td>
+<td><strong>100.0</strong> (±0.0)</td>
+<td>100.0 (±0.0)</td>
+<td>88.9 (±9.8)</td>
+<td>96.3 (±3.3)</td>
+</tr>
+<tr>
+<td>gpt-oss-120b</td>
+<td>97.5 (±7.5)</td>
+<td>100.0 (±0.0)</td>
+<td><strong>97.2</strong> (±5.4)</td>
+<td><strong>98.2</strong> (±2.8)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>4. Comparative Analysis (Section 3)</h2>
+<p><strong>Which model performed better?</strong>
+<strong>gpt-oss-120b</strong>, by <strong>+1.9</strong> overall (98.2 vs 96.3). It split the metrics with Llama: Llama won
+<strong>Fact Recall</strong> (100.0 vs 97.5) and tied <strong>Tone Accuracy</strong> (both perfect, 100.0), while gpt-oss won
+<strong>Conciseness &amp; Fluency</strong> decisively (<strong>97.2 vs 88.9, +8.3</strong>). Both models nailed tone on every
+scenario, so the comparison came down to facts vs concision.</p>
+<p><strong>Biggest failure mode of the lower-performing model (llama-3.3-70b): verbosity.</strong>
+The data is unambiguous — Llama's fluency was perfect (5/5 grammar everywhere), but it consistently
+<strong>over-wrote</strong>. Its generated emails averaged <strong>1.42× the reference length</strong> (gpt-oss: 1.13×), and
+the worst offenders were exactly the scenarios where it lost points:
+- <strong>S03 outage apology</strong> — 177 words vs a 97-word reference (<strong>1.83×</strong>), length score 47.3.
+- <strong>S02 RFP request</strong> — 152 words vs 86 (<strong>1.77×</strong>), length score 51.3.
+- <strong>S06 partner pitch</strong> — 159 words vs 99 (<strong>1.61×</strong>), length score 62.6.</p>
+<p>So Llama writes <em>well</em> but not <em>tightly</em>: it pads with framing and restatement, which is a real cost
+for busy email readers. gpt-oss's only blemish was the mirror image — on <strong>S04</strong> it dropped one
+required fact ("recently joined Stripe"), giving 75 on that scenario; it occasionally trades a detail
+for brevity.</p>
+<p><strong>Production recommendation: <code>gpt-oss-120b</code>, with a fact-completeness guardrail.</strong>
+It wins on quality (98.2), is materially <strong>cheaper</strong> ($0.15/$0.60 vs $0.59/$0.79 per 1M tokens
+in/out), <strong>faster</strong> (≈500 vs ≈280 tokens/sec on Groq), and produces send-ready, concise emails. Its
+one risk is the most business-critical dimension — fact omission — so I'd pair it with the cheap
+programmatic <strong>Fact Recall check we already built</strong> (or a higher reasoning effort) to auto-flag the
+rare miss before send. That combination gives gpt-oss's brevity and cost with Llama's reliability.</p>
+<p><strong>Choose <code>llama-3.3-70b</code> instead only if</strong> fact completeness must be guaranteed with <em>zero</em> tooling
+around the model and mild verbosity is acceptable — e.g., long-form drafts a human edits anyway.</p>
+<hr />
+<h2>5. Caveats &amp; critical notes</h2>
+<ul>
+<li><strong>Small sample (n=10).</strong> The +1.9 overall gap is within the run-to-run noise you'd expect from an
+  LLM judge, so it is <em>directional, not conclusive</em>; the <strong>conciseness gap (+8.3) is the robust,
+  repeatable finding</strong>. Tone saturated at 100 for both — a harder tone rubric (or adversarial
+  scenarios) would discriminate better next iteration.</li>
+<li><strong>LLM-judge limits.</strong> Even a neutral judge at <code>temp=0</code> carries verbosity/leniency biases; Fact
+  Recall is the most trustworthy metric here because it's a verifiable yes/no, not a holistic score.</li>
+<li><strong>Reproducibility.</strong> All sampling params, model IDs, and timestamps are logged into
+  <code>results/summary.json</code> and <code>results/scores.json</code>.</li>
+<li><strong>Next steps:</strong> multi-seed runs for confidence intervals, a second independent judge for agreement
+  (Cohen's κ), and harder scenarios (longer fact lists, conflicting constraints) to stress Fact Recall.</li>
+</ul></body></html>
