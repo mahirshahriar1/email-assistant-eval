@@ -40,6 +40,9 @@ Enter an **Intent**, **Key Facts** (one per line), and a **Tone**, pick a model,
 **Generate email**. This is the "working prototype" surface and uses the same generator as the
 evaluation. (Prefer the terminal? `python -m src.assistant --help` does the same one-off.)
 
+The endpoint is **rate-limited to 6 generations/min per IP** (Flask-Limiter) to protect the shared
+Groq free-tier quota; exceeding it returns a friendly 429.
+
 ![web UI: a form for Intent / Key Facts / Tone on the left, generated email on the right]
 
 ## 4. Run the evaluation

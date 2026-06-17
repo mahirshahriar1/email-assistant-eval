@@ -40,7 +40,7 @@ def _retry_after_seconds(err, attempt) -> float:
     return config.BACKOFF_BASE * (2 ** attempt)
 
 
-def _create(messages, model, temperature, max_tokens, json_mode=False) -> str:
+def _create(messages, model, temperature, max_tokens, json_mode=False, throttle=True) -> str:
     kwargs = dict(
         model=model,
         messages=messages,
@@ -55,7 +55,8 @@ def _create(messages, model, temperature, max_tokens, json_mode=False) -> str:
         try:
             resp = client().chat.completions.create(**kwargs)
             content = resp.choices[0].message.content or ""
-            time.sleep(config.INTER_CALL_SLEEP)  # be a good free-tier citizen
+            if throttle:
+                time.sleep(config.INTER_CALL_SLEEP)  # batch hygiene; skipped for interactive
             return content
         except groq.RateLimitError as e:
             last_err = e
@@ -71,9 +72,9 @@ def _create(messages, model, temperature, max_tokens, json_mode=False) -> str:
     raise RuntimeError(f"Groq call to {model} failed after {config.MAX_RETRIES} retries: {last_err}")
 
 
-def chat(messages, model, temperature, max_tokens) -> str:
-    """Free-text completion."""
-    return _create(messages, model, temperature, max_tokens, json_mode=False)
+def chat(messages, model, temperature, max_tokens, throttle=True) -> str:
+    """Free-text completion. Pass throttle=False for low-latency interactive calls."""
+    return _create(messages, model, temperature, max_tokens, json_mode=False, throttle=throttle)
 
 
 def json_chat(messages, model, temperature, max_tokens) -> dict:
